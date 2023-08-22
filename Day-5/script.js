@@ -1,27 +1,4 @@
 //Exercise 1
-const countries = [
-  "Albania",
-  "Bolivia",
-  "Canada",
-  "Denmark",
-  "Ethiopia",
-  "Finland",
-  "Germany",
-  "Hungary",
-  "Ireland",
-  "Japan",
-  "Kenya",
-];
-
-const webTechs = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "React",
-  "Redux",
-  "Node",
-  "MongoDB",
-];
 
 //Q1
 const emptyArr = Array();
@@ -131,3 +108,89 @@ console.log(itCompanies.pop());
 
 //Q23
 console.log(itCompanies.splice());
+
+//Exercise Level 2
+//Q2
+let text =
+  "I love teaching and empowering people. I teach HTML, CSS, JS, React, Python.";
+let newText = text.replace(/[^A-Z a-z 0-9 _]/g, "");
+let finalText = newText.split(" ");
+let words = [...finalText];
+console.log(words);
+console.log(words.length);
+
+//Q3
+const shoppingCart = ["Milk", "Coffee", "Tea", "Honey"];
+shoppingCart.unshift("Meat");
+shoppingCart.push("Sugar");
+shoppingCart.splice(2, 2, "Green Tea");
+console.log(shoppingCart);
+
+//Q4
+import { countries } from "./countries.js";
+let checkCountry = countries.indexOf("ETHIOPIA");
+if (checkCountry != -1) {
+  console.log("ETHIOPIA");
+} else {
+  countries.push("ETHIOPIA");
+}
+console.log(countries);
+
+//Q5
+import { webTechs } from "./web_techs.js";
+let checkWebTech = webTechs.indexOf("Sass");
+if (checkWebTech != -1) {
+  console.log("Sass is a CSS preprocess");
+} else {
+  webTechs.push("Sass");
+  console.log(webTechs);
+}
+
+//Q6
+const frontEnd = ["HTML", "CSS", "JS", "React", "Redux"];
+const backEnd = ["Node", "Express", "MongoDB"];
+const fullStack = frontEnd.concat(backEnd);
+console.log(fullStack);
+
+//Exercise Level 3
+//Q1
+const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24];
+ages.sort();
+const minValue = Math.min(...ages);
+const maxValue = Math.max(...ages);
+console.log(ages, minValue, maxValue);
+
+//Median Age
+let MedianAge = `${(ages[4] + ages[5]) / 2}`;
+console.log(MedianAge);
+
+//Find the average age
+
+let averageAge = 0;
+const findAverageAGE = function (arr) {
+  for (let i = 0; i < arr.length; i++) {
+    averageAge += arr[i];
+  }
+  return averageAge / arr.length;
+};
+console.log(findAverageAGE(ages));
+
+//Find the range of the ages
+const rangeOfAges = maxValue - minValue;
+console.log(rangeOfAges);
+
+//Compare the values
+let minAverage = minValue - averageAge;
+let maxAverage = maxValue - averageAge;
+const result = Math.abs(maxAverage - minAverage);
+console.log(result);
+
+//Q2
+let country = countries[Math.floor(countries.length / 2)];
+console.log(country);
+
+//Q3
+const middleIndex = Math.ceil(countries.length / 2);
+const firstHalf = countries.slice().splice(0, middleIndex);
+const secondHalf = countries.slice().splice(-middleIndex);
+console.log(countries, firstHalf, secondHalf);
